@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "title": "Limpar a casa",
+      "desc": "Limpar a casa todos os dias as 15:00",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "comer ",
+      "desc": "todos os dias",
+      "completed": false,
+      "id": 3
+    }
+  ]
+}
