@@ -20,6 +20,10 @@ function App() {
     }
   }, [items]);
 
+  const topPage = () => {
+    window.scrollTo(0, 0)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newProduct = {
@@ -31,6 +35,8 @@ function App() {
     setTitle("");
     setDesc("");
   };
+
+
 
   const handleRemove = (id) => {
     httpConfig(id, "DELETE");
@@ -59,7 +65,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Lista de Tarefas" />
+      <Header title="Lista de Tarefas"></Header>
       {loading && <p>Carregando dados...</p>}
       {error && <p>{error}</p>}
       {localItems && localItems.map((list) => (
@@ -67,13 +73,13 @@ function App() {
           <li className={`task-list ${list.completed ? 'completed-task' : ''}`}>
             {editMode === list.id ? (
               <>
-                <labe className="editLabel">
-                  Alterar Titulo:
-                <input className='editInput' type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
-                </labe>
                 <label className="editLabel">
-                  ALterar Descrição
-                <input className='editInput' type="text" value={editDesc} onChange={(e) => setEditDesc(e.target.value)} />
+                  Alterar Título:
+                  <input className='editInput' type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
+                </label>
+                <label className="editLabel">
+                  Alterar Descrição:
+                  <input className='editInput' type="text" value={editDesc} onChange={(e) => setEditDesc(e.target.value)} />
                 </label>
                 <button className='buttonCreate' onClick={() => handleUpdate(list.id)}>Salvar</button>
               </>
@@ -84,8 +90,9 @@ function App() {
                 <button className="buttonConcluir" onClick={() => handleComplete(list.id)}>
                   {list.completed ? 'Desmarcar' : 'Concluir'}
                 </button>
-                <button className="buttonDelete" onClick={() => handleRemove(list.id)}>Deletar</button>
-                <button className='buttonEdit' onClick={() => handleEdit(list.id)}>Editar</button>
+                <button className="buttonDelete" onClick={() => { handleRemove(list.id) }} disabled={list.completed === true} >Deletar</button>
+                <button className='buttonEdit' onClick={() => handleEdit(list.id)} disabled={list.completed === true}>Editar</button>
+
               </>
             )}
           </li>
@@ -103,7 +110,7 @@ function App() {
             Descrição da Tarefa:
             <input type="text" name="desc" value={desc} onChange={(e) => setDesc(e.target.value)} required />
           </label>
-          {loading ? <input type="submit" value="Aguarde..." /> : <input className='buttonCreate' type="submit" value="Criar" />}
+          {loading ? <input type="submit" value="Aguarde..." /> : <input className='buttonCreate' type="submit" value="Criar" onClick={topPage} />}
         </form>
       </div>
     </div>

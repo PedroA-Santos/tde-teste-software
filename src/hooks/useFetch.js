@@ -10,7 +10,7 @@ export const useFetch = (url) => {
     const [itemId, setItemId] = useState(null);
 
     const httpConfig = (data, method) => {
-        if (method === "POST") {
+        if (method === "POST" || method === "PUT") {
             setConfig({
                 method,
                 headers: {
@@ -19,6 +19,9 @@ export const useFetch = (url) => {
                 body: JSON.stringify(data)
             });
             setMethod(method);
+            if (method === "PUT") {
+                setItemId(data.id);
+            }
         } else if (method === 'DELETE') {
             setConfig({
                 method,
@@ -28,16 +31,6 @@ export const useFetch = (url) => {
             });
             setMethod(method);
             setItemId(data);
-        } else if (method === 'PUT') {
-            setConfig({
-                method,
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
-            setMethod(method);
-            setItemId(data.id);
         }
     };
 
@@ -65,10 +58,11 @@ export const useFetch = (url) => {
         const httpRequest = async () => {
             if (method === "POST" || method === "DELETE" || method === "PUT") {
                 let fetchOptions = method === "DELETE" ? [`${url}/${itemId}`, config] : [url, config];
+                if (method === "PUT") fetchOptions = [`${url}/${itemId}`, config];
 
                 try {
                     const res = await fetch(...fetchOptions);
-                    if (!res.ok) throw new Error(" ");
+                    if (!res.ok) throw new Error("Erro ao executar a requisição");
                     const json = await res.json();
                     setCallFetch(json);
                 } catch (err) {

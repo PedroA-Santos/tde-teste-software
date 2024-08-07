@@ -1,155 +1,157 @@
 .App {
   text-align: center;
-  background-color: rgb(140, 140, 140);
+  background-color: #1a1a1a;
   color: white;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 ul {
   background-color: #000;
-
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 0;
 }
 
 li {
-
   margin-top: 20px;
   margin-bottom: 15px;
   list-style: none;
-  border: 2px solid rgb(255, 255, 255);
-  padding: 10px;
-  background-color: rgb(24, 41, 85);
+  border: 2px solid #00ff00;
+  padding: 15px;
+  background-color: #2b2b2b;
   border-radius: 10px;
-
+  width: 60%;
+  text-align: left;
+  margin-top: 40px;
+  max-width: 90%;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  animation: fadeIn 1s ease-in-out ;
 }
 
 .add-product {
   border-top: 1px solid #000;
-  background: linear-gradient(to right, rgb(32, 31, 31), rgb(0, 51, 255));
-  height: 100vh;
-  /* altura total da viewport */
-  width: 100%;
-  padding: 5px;
-  position: relative;
-  margin-top: 0px;
+  background: linear-gradient(to right, #1a1a1a, #2b2b2b);
+  height: 50vh;
+  width: auto;
+  padding: 20px;
+  margin-top: 40px;
+
+
+
 }
 
 .add-product h1 {
-  color: rgb(0, 0, 0);
-  text-shadow: 2px 2px rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  text-shadow: 2px 2px #000;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
-  border: 3px solid rgb(255, 255, 255);
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  box-shadow:
+    0 5px 0 0 rgb(255, 255, 255),
+    0 10px 0 0 rgba(255, 255, 255, 0.6),
+    0 15px 0 0 rgba(255, 255, 255, 0.4),
+    0 20px 0 0 rgba(255, 255, 255, 0.2),
+    0 25px 0 0 rgba(255, 255, 255, 0.1);
+  animation: float 3s ease-in-out infinite;
 }
-
-
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 70px;
 }
 
 form input {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 15px;
-  border: 2px solid black;
-  width: 400px;
+  border: 2px solid #00ff00;
+  width: 300px;
   border-radius: 5px;
-  height: 20px;
+  height: 30px;
+  padding: 5px;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
 }
 
 form label {
-  color: white;
-  text-shadow: 2px 2px black;
-  font-size: 20px;
+  color: #00ff00;
+  text-shadow: 2px 2px #000;
+  font-size: 18px;
   font-weight: bold;
-
+  margin-bottom: 5px;
+  padding: 5px;
 }
 
 .buttonCreate {
-
-  width: 180px;
+  width: 200px;
   border-radius: 5px;
-  height: 30px;
-  background-color: rgb(27, 199, 27);
+  height: 40px;
+  background-color: #00a405;
   font-weight: bold;
   font-size: 16px;
   padding: 5px;
-  border: 3px solid black;
+  border: 3px solid #ffffff;
   cursor: pointer;
-  margin-top: 10px;
+  color: #ffffff;
+  transition: background-color 1s, transform 1s;
 
 }
 
 .buttonCreate:hover {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #00ff00;
   cursor: pointer;
+  color: rgb(255, 255, 255);
+  transform: scale(1.05);
 }
-
 
 .completed-task {
-  background-color: green;
+  background-color: #00ff00;
+  color: #000;
   text-decoration: line-through;
+  transition: background-color 1s, transform 1s;
 }
 
-.buttonConcluir {
-  padding: 5px;
+.buttonConcluir,
+.buttonDelete,
+.buttonEdit {
+  padding: 10px;
   margin: 5px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border: 2px solid white;
+  background-color: #1a1a1a;
+  color: #00ff00;
+  border: 2px solid #00ff00;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 1s, transform 1s;
 }
 
 .buttonConcluir:hover {
-  background-color: green;
-  cursor: pointer;
+  background-color: #589758;
+  color: black;
+  transform: scale(1.05);
 }
-
-.buttonDelete {
-
-  padding: 5px;
-  margin: 5px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border: 2px solid white;
-  font-weight: bold;
-  border-radius: 5px;
-
-}
-
 
 .buttonDelete:hover {
-  background-color: rgb(255, 0, 0);
-  cursor: pointer;
-}
-
-.buttonEdit {
-  padding: 5px;
-  margin: 5px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  border: 2px solid white;
-  font-weight: bold;
-  border-radius: 5px;
-
+  background-color: red;
+  color: black;
+  transform: scale(1.05);
 }
 
 .buttonEdit:hover {
-  background-color: rgb(234, 255, 0);
-  cursor: pointer;
-  text-shadow: 1px 1px black;
+  background-color: yellow;
+  color: black;
+  transform: scale(1.05);
 
 }
-
 
 .editLabel {
   text-align: center;
@@ -159,12 +161,63 @@ form label {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #00ff00;
+
 }
 
-
 .editInput {
-  border: 3px solid black;
+  border: 2px solid #00ff00;
   padding: 5px;
   border-radius: 5px;
   font-size: 18px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+button:disabled {
+  color: darkgray;
+  background-color: rgb(83, 83, 83);
+
+
+}
+
+button:disabled:hover {
+  color: darkgray;
+  background-color: rgb(83, 83, 83);
+  transition: none;
+  transform: none;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
